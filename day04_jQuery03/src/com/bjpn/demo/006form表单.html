@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function  getBaidu(){
+            /*当前浏览器窗口的地址栏 发起对指定路径的访问  这个只能是get请求*/
+            window.location.href="https://www.baidu.com?upwd=123";
+        }
+    </script>
+</head>
+<body>
+<!--action是表单提交是  浏览器要访问的路径
+    method：请求方式    get明文  post报文
+    name=value  key-value的格式  多用来传递参数
+    submit在form表单中的作用 提交时，访问action路径  自动把name=value当做参数提交给访问地址
+-->
+<center>
+  <form action="https://www.baidu.com" method="post">
+    账号：<input type="text" name="uname" value=""><br/>
+    密码：<input type="password" name="upwd" value=""><br/>
+      <input type="submit" value="提交">
+  </form>
+    <!--超链接  在地址栏中主动访问href地址  只能是get请求-->
+    <a href="https://www.taobao.com?uname=lisi">访问淘宝</a>
+    <button onclick="getBaidu();">location发起请求</button>
+</center>
+</body>
+</html>

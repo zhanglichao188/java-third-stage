@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单选择器</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+           /* $(":text").blur(function () {
+                alert($(":text").val());
+            });*/
+            $("#allCheck").click(function () {
+                var $checkbox=$(":checkbox");
+                $.each($checkbox, function (i,n) {
+                    n.checked=true;
+                });
+            });
+            $("#fanCheck").click(function () {
+                var $checkbox=$(":checkbox");
+                $.each($checkbox, function (i,n) {
+                    n.checked=!n.checked;
+                });
+            });
+            $("#noCheck").click(function () {
+                var $checkbox=$(":checkbox");
+                $.each($checkbox, function (i,n) {
+                    n.checked=false;
+                });
+            });
+        });
+
+        function tijiao() {
+            if ($(":text").val()==""||$(":text").val()==null) {
+                alert("用户名不能为空");
+                return false;
+            }
+            if ($($(":password")[0]).val()==""||$($(":password")[0]).val()==null) {
+                alert("密码不能为空");
+                return false;
+            }
+            if ($($(":password")[1]).val()==""||$($(":password")[1]).val()==null) {
+                alert("请在输入一遍密码")
+                return false;
+            }
+            if ($($(":password")[0]).val()!=$($(":password")[1]).val()) {
+                alert("两次密码不一致")
+                return false;
+            }
+            alert("验证成功")
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="https:\\www.baidu.com" method="get" onsubmit="return tijiao();">
+        用户名：<input type="text" name="text1">
+        密码：<input type="password" name="password1">
+        确认密码:<input type="password">
+        <br/>
+        <input type="checkbox" name="hobby" value="游泳">游泳
+        <input type="checkbox" name="hobby" value="打游戏">打游戏
+        <input type="checkbox" name="hobby" value="打篮球">打篮球
+        <input type="button" value="全选" id="allCheck">
+        <input type="button" value="反选" id="fanCheck">
+        <input type="button" value="不选" id="noCheck">
+        省：<select>
+        <option>浙江</option>
+        <option>江苏</option>
+        <option>上海</option>
+        <option>安徽</option>
+        <option>广东</option>
+        <option>山东</option>
+        </select>
+        市：<select>
+        <option>杭州市</option>
+        <option>宁波市</option>
+        <option>嘉兴市</option>
+        <option>温州市</option>
+        <option>湖州市</option>
+        <option>绍兴市</option>
+        </select>
+        <input type="submit" value="提交验证">
+    </form>
+</body>
+</html>

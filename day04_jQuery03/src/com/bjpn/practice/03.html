@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#but1").click(function () {
+                var $inputc = $("input[class]");
+                alert($inputc.length);
+            });
+            $("#but2").click(function () {
+                var $inpbox = $("input[type=checkbox]");
+                alert($inpbox.length);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="newsletter" value="Hot Fuzz"  class="int_c1"/>
+    <input type="checkbox" name="newsletter" value="Cold Fusion" />
+    <input type="radio" name="accept" value="Evil Plans"  class="int_c1"/>
+    <input name="newsletter" />
+    <input name="milkman"  class="int_c2"/>
+    <input name="newsboy" /><br/>
+    <button id="but1">input中所有有class属性的标签</button>
+    <button id="but2">input中所有type属性且type属性值为checkbox的</button>
+</body>
+</html>

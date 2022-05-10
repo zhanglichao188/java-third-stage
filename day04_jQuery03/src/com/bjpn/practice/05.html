@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐藏和显示</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#but1").click(function () {
+                $("#img_id").hide(3000);
+            });
+            $("#but2").click(function () {
+                $("#img_id").show(2000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src="../../../../dlrb.jpg" id="img_id">
+    <button id="but1">隐藏</button>
+    <button id="but2">展示</button>
+</body>
+</html>

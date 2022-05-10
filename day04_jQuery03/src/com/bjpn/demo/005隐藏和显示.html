@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script>
+        $(function(){
+            $("#but1").click(function(){
+                //用3秒  把图片隐藏
+                $("#img_id").hide(3000);
+            });
+            $("#but2").click(function(){
+                $("#img_id").show(2000);
+            });
+        })
+    </script>
+</head>
+<body>
+  <img src="001.jfif" id="img_id">
+<button id="but1">隐藏</button>
+  <button id="but2">展示</button>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单选择器</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#but1").click(function () {
+                var $firstLi = $("li:first");
+                alert($firstLi.text());
+            });
+            $("#but2").click(function () {
+                var $liLast = $("li:last");
+                alert($liLast.text());
+            });
+            $("#but3").click(function () {
+                var $oli = $("li:even");
+                $.each($oli, function (i, n) {
+                    $(n).css("color", "red");
+                });
+            });
+            $("#but4").click(function(){
+                var $jli = $("li:odd");
+                $.each($jli, function (i,n) {
+                    $(n).css("color", "blue");
+                });
+            });
+            $("#but5").click(function(){
+                var $li = $("li:eq(2)");
+                alert($li.text());
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+    </ul>
+    <button id="but1">得到第一个li</button>
+    <button id="but2">得到最后一个li</button>
+    <button id="but3">奇数列偶数下标变成红色</button>
+    <button id="but4">偶数列奇数下标变成蓝色</button>
+    <button id="but5">得到第三列</button>
+</body>
+</html>

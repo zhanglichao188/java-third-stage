@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--得到div标签中的所有p标签-->
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script>
+        $(function(){
+            $("#but1").click(function(){
+                var $p = $("#div1 p");
+                $.each($p,function(i,n){
+                    alert(n.innerText);
+                })
+            });
+            //子节点选择器
+            $("#but2").click(function(){
+                var $p = $("#div1>p");
+                $.each($p,function(i,n){
+                    alert(n.innerText);
+                })
+            });
+            $("#but3").click(function(){
+                var $p = $("#div1+b");
+                alert($p.length)
+                $.each($p,function(i,n){
+                    alert(n.innerText);
+                })
+            });
+            $("#but4").click(function(){
+                var $p = $("#div1~b");
+                alert($p.length)
+                $.each($p,function(i,n){
+                    alert(n.innerText);
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+<b>这是加粗3</b>
+    <div id="div1">
+        <p>这是段落</p>
+        <font>
+            <p>这是font节点的子段落</p>
+        </font>
+    </div>
+    <b>这是加粗</b><font>这是自由的font</font>
+    <b>这是加粗2</b>
+    <br/>
+    <button id="but1">得到div1中的所有p节点</button>
+    <button id="but2">得到div1中的所有子节点p</button>
+    <button id="but3">得到div1的下一个元素</button>
+    <button id="but4">得到div1后面的所有B</button>
+    <div id="div2">
+        <p>这是段落1</p>
+        <font>
+            <p>这是font节点的子段落2</p>
+        </font>
+    </div>
+</body>
+</html>
