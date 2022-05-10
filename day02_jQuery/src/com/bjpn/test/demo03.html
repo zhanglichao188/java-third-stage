@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <timessage_nametle>demo03</timessage_nametle>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+       /* function getFo() {
+            var font=document.getElementById("message_name");
+            font.color = "bule";
+            font.innerText = "用户名是数字和字母的组合";
+        }*/
+       $(function () {
+           $("#inp_name").focus(function () {
+               var font=document.getElementById("message_name");
+               font.color = "blue";
+               font.innerText = "用户由字母和数字组成";
+           });
+           $("#check_pwd").click(function () {
+              /* var $type=$("#inp_pwd").prop("type");
+               if ($type == "password") {
+                   $("#inp_pwd").prop("type", "text");
+               } else {
+                   $("#inp_pwd").prop("type", "password");
+               }*/
+               var input=document.getElementById("inp_pwd");
+               if (input.type == "password") {
+                   input.type = "text";
+               } else {
+                   input.type = "password";
+               }
+           });
+       });
+    </script>
+</head>
+<body>
+    <center>
+        <h1>注册页面</h1>
+        <form>
+            <table>
+                <tr>
+                    <td>账号：</td>
+                    <td><input type="text" name="uname" value="" id="inp_name" class="inp_c1" >
+                        <font id="message_name"></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input type="password" name="upwd" value="" id="inp_pwd" class="inp_c1">
+                        <b id="check_pwd">查看密码</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td>爱好：</td>
+                    <td><input type="checkbox" name="hobby" value="游泳" class="inp_c1">游泳
+                        <input type="checkbox" name="hobby" value="看书" class="inp_c2">看书
+                        <input type="checkbox" name="hobby" value="睡觉">睡觉
+                    </td>
+                </tr>
+                <input type="submit" value="提交">
+
+            </table>
+        </form>
+    </center>
+</body>
+</html>

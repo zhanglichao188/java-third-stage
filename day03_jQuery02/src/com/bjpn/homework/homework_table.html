@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格相关操作</title>
+    <style>
+        td {
+            height: 30px;
+            border: 1px black solid;
+        }
+    </style>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            //新增行
+            $("#bt1").click(function () {
+                var $table = $("#table");
+                $table.prop("border", "1px");
+                $table.prop("width", "300px");
+                $table.prop("cellspacing", "0px");
+                //每次新增一行，一行默认有三列
+                $table.append("<tr bgcolor='blue'><td></td><td></td><td></td><tr/>");
+            });
+            $("#bt2").click(function () {
+                var $table = $("#table");
+                //清空表格
+                $table.empty();
+                //表格边框为0
+                $table.prop("border", "0px");
+            });
+            $("#bt3").click(function () {
+                var $table = $("#table");
+                var $trs = $("tr");
+                //如果表格里只有一行的话，直接清空
+                if ($trs.length == 2) {
+                    $table.empty();
+                    $table.prop("border", "0px");
+                }
+                //每次删除表格行数组的最后两行
+                $($trs[$trs.length - 1]).remove();
+                $($trs[$trs.length - 2]).remove();
+            });
+        })
+    </script>
+</head>
+<body>
+<center>
+    <table id="table"></table>
+    <button id="bt1">插入行</button>
+    <button id="bt2">清空行</button>
+    <button id="bt3">删除最后一行</button>
+</center>
+</body>
+</html>

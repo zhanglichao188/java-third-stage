@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery和js的互换</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            $("#but1").click(function () {
+                var inp = document.getElementById("inp_uname");
+                alert("js对象：" + inp);
+                var $inp = $(inp);
+                alert("转换后的jQuery对象：" + $inp);
+                alert("转换后的jQuery对象操作属性：" + $inp.val());
+            });
+            $("#but2").click(function () {
+                var $input = $("#inp_uname");
+                alert("jQuery对象：" + $input);
+                //var input = $input.get(0);
+                var input = $input[0];
+                alert(input);
+            });
+
+        });
+    </script>
+</head>
+<body>
+    账号：<input type="text" name="uname" id="inp_uname"><br/>
+    <button id="but1">js转换jQuery</button>
+    <button id="but2">jQuery转换为js</button>
+</body>
+</html>

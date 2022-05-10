@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script>
+        $(function(){
+            $("#but1").click(function(){
+                //用js的方式获取input对象
+                var inp = document.getElementById("inp_uname");
+               alert("js对象："+inp)
+                /*alert("js对象可以直接操作属性："+inp.value)*/
+                //把js对象变成jQuery  就是把js对象封装起来
+                var $inp = $(inp);
+                alert("转换后的jQuery对象："+$inp)
+                alert("转换后的jQuery操作属性："+$inp.val())
+            });
+            //jQuery转换为js
+            $("#but2").click(function(){
+                var $inp = $("#inp_uname");
+                alert("jQuery对象："+$inp);
+                //var inp = $inp.get(0);//0 是jQuery对象的下标
+                var inp = $inp[0];
+                alert(inp);
+            })
+        });
+    </script>
+</head>
+<body>
+  账号：<input type="text" name="uname" id="inp_uname"><br/>
+    <button id="but1">js转换jQuery</button>
+  <button id="but2">jQuery转换为js</button>
+</body>
+</html>

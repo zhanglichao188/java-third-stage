@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入jQuery库   我们就可以再当前页面使用jQuery语法-->
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script>
+        $(function(){
+            /*通配符选择器*/
+           /*var $all =  $("*");//得到当前页面所有的标签
+            alert($all.length);*/
+            /*# id选择器 根据id锁定指定的某一个标签
+            * 注意：在同一页面id不能重复 只能唯一
+            * */
+           /* var $inpName = $("#inp_name");
+            alert($inpName.length);*/
+            /*.class选择器  可以获取多个*/
+            /*var $inpClass = $(".inp_c1");
+            alert($inpClass.length);*/
+            /*标签名选择器  */
+            /*var $allInp = $("input");
+            alert("标签名选择器："+$allInp.length);*/
+            /*联合选择器就是把多个选择器联合到一起  用,隔开*/
+            var $other = $("#inp_name,#inp_pwd,.inp_c1,center")
+            alert("联合选择器有重复："+$other.length);
+        });
+    </script>
+</head>
+<body >
+<!--jQuery的使用-->
+<center>
+    <h1>注册页面</h1>
+    <form>
+        <table>
+            <tr>
+                <td>账号：</td>
+                <td><input type="text" name="uname" value="" id="inp_name" class="inp_c1"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="upwd" value="" id="inp_pwd" class="inp_c1"></td>
+            </tr>
+            <tr>
+                <td>爱好：</td>
+                <td><input type="checkbox" name="hobby" value="游泳" class="inp_c1">游泳
+                    <input type="checkbox" name="hobby" value="看书" class="inp_c2">看书
+                    <input type="checkbox" name="hobby" value="睡觉">睡觉
+                </td>
+            </tr>
+            <input type="submit" value="提交">
+
+        </table>
+    </form>
+</center>
+</body>
+</html>

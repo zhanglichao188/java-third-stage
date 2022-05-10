@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 300px;
+            border: 1px red solid;
+        }
+    </style>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function(){
+            $("#but1").click(function(){
+                var $div=$("#div1");
+                //给这个标签 添加子元素
+                $div.append("<font color='red'>这是文字信息</font>")
+                $div.append("<p>p段落</p>");
+            });
+            $("#but2").click(function(){
+                var $div=$("#div1");
+                //把b节点追加到div的末尾
+                $("<b>b节点加粗</b>").appendTo($div);
+            });
+            $("#but3").click(function(){
+                var $font = $("#font1");
+                $font.before("<p>新来的</p>")
+            });
+            $("#but4").click(function(){
+                var $font = $("#font1");
+                $font.after("<p>新来的</p>")
+            });
+            //删除font节点
+            $("#but5").click(function(){
+                /*var $font = $("#font1");
+                $font.remove();*/
+                var $allFont = $("font");//慎用
+                $allFont.remove();
+            });
+            $("#but6").click(function(){
+                var $div=$("#div1");
+                $div.empty();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <div id="div1">
+            <font color="green" id="font1">我是div中的第一个节点</font>
+        </div>
+        <button id="but1">添加p节点</button>
+        <button id="but2">添加b节点</button>
+        <button id="but3">在之前添加</button>
+        <button id="but4">在之后添加</button>
+        <button id="but5">删除font节点</button>
+        <button id="but6">清空div1节点</button>
+    </div>
+</body>
+</html>

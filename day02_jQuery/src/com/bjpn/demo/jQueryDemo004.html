@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入jQuery库   我们就可以再当前页面使用jQuery语法-->
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        /*账号在失去焦点时 对value进行判断  */
+        $(function(){
+            //失去焦点事件
+           /* $("#inp_name").blur(function(){
+               var $inpName =  $("#inp_name");
+               var nameValue = $inpName.val();
+               alert(nameValue)
+                /!*val() 这代表取出jQuery对象中的value值
+                * val(值) 把新的值  放入jQuery对象中  赋值
+                * *!/
+                $inpName.val("我给你个新值：大郎")
+            });*/
+            //点击  查看密码
+            $("#check_pwd").click(function (){
+                //获取密码框的jQuery对象
+                var $inpPwd = $("#inp_pwd");
+                //attr attribute
+                var type = $inpPwd.attr("type");
+                /*alert("取出name属性："+$inpPwd.attr("name"));
+                alert("取出value属性："+$inpPwd.attr("value"));
+                alert("取出id属性："+$inpPwd.attr("id"));*/
+                alert("取出name属性："+$inpPwd.prop("name"));
+                alert("取出value属性："+$inpPwd.prop("value"));
+                alert("取出id属性："+$inpPwd.prop("id"));
+                //alert(type);
+                if(type=="password"){
+                    //把input框的type属性重新赋值为text
+                    $inpPwd.prop("type","text");
+                }else{
+                    $inpPwd.prop("type","password");
+                }
+            });
+            //得到焦点 显示信息
+            $("#inp_name").focus(function (){
+                //得到焦点 在b标签中显示账号是数字和字母的组合
+                //$("#message_name").html("<font color='blue'>账号是数字和字母的组合</font>")
+                $("#message_name").text("<font color='blue'>账号是数字和字母的组合</font>")
+            });
+        });
+        /*全选按钮*/
+        function getAll(){
+            var  hobbys = document.getElementsByName("hobby");
+            for(var i=0;i<hobbys.length;i++){
+                var hobby = hobbys[i];
+                hobby.checked="checked";
+            }
+        }
+    </script>
+</head>
+<body >
+<!--jQuery的使用-->
+<center>
+    <h1>注册页面</h1>
+        <table>
+            <tr>
+                <td>账号：</td>
+                <td><input type="text" name="uname" value="" id="inp_name"  >
+                    <b id="message_name"></b>
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="upwd" value="" id="inp_pwd" >
+                    <b id="check_pwd">查看密码</b>
+                </td>
+            </tr>
+            <tr>
+                <td>爱好：</td>
+                <td><input type="checkbox" name="hobby" value="游泳" class="inp_c1" >游泳
+                    <input type="checkbox" name="hobby" value="看书" class="inp_c1" >看书
+                    <input type="checkbox" name="hobby" value="睡觉" class="inp_c1">睡觉
+                    <br/>
+                    <button onclick="getAll();">全选</button>
+                </td>
+            </tr>
+                <input type="submit" value="提交">
+        </table>
+</center>
+</body>
+</html>

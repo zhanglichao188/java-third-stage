@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script>
+        function getAll(){
+            //全选 普通遍历
+            var $inpCheck = $(".inp_check");
+            for(var i =0;i<$inpCheck.length;i++){
+                var checkInp = $inpCheck[i];//jQuery对象----》js对象
+                //全选按钮
+                checkInp.checked = true;
+            }
+        }
+        function getOther(){
+            var $inpCheck = $(".inp_check");
+            $inpCheck.each(function(i){
+                var  checkInp = $inpCheck[i];//js对象
+                //反选 给他相反的状态
+                checkInp.checked = !checkInp.checked;
+            })
+        }
+        function getNo(){
+            var $inpCheck = $(".inp_check");
+            //n:形参 每次遍历  把结果赋值给n
+            $.each($inpCheck,function (i,n){
+               // n ==== $inpCheck[i];
+                n.checked = false;
+            });
+        }
+    </script>
+</head>
+<body>
+<center>
+    爱好:<input type="checkbox" name="hobby" value="游泳" class="inp_check">游泳
+    <input type="checkbox" name="hobby" value="看书" class="inp_check">看书
+    <input type="checkbox" name="hobby" value="睡觉" class="inp_check">睡觉<br/>
+        <a href="javascript:getAll();">全选</a>
+        <a href="javascript:getOther();">反选</a>
+        <a href="javascript:getNo();">不选</a><br/>
+</center>
+</body>
+</html>

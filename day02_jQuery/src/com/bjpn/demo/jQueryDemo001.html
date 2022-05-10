@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入jQuery库   我们就可以再当前页面使用jQuery语法-->
+  <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <!--页面加载完毕就拿到input框的value值-->
+    <script >
+        /*页面加载  js的写法*/
+        /*window.onload=function(){
+            var inp = document.getElementById("inp_name");
+            alert(inp.value);
+        }*/
+        /*jQuery对js进行封装*/
+        /*jQuery(document).ready(function(){
+            var inp = document.getElementById("inp_name");
+            alert("jQuery方式："+inp.value);
+        });*/
+        /*jQuery的封装*/
+        $(function(){
+           /* var inp = document.getElementById("inp_name");
+            alert("jQuery方式  简化版:"+inp.value);*/
+            //jQuery已经拿到整个document
+            var inp = document.getElementById("inp_name");
+            alert("js获取的对象："+inp);
+            var $inp = $("#inp_name");
+            alert("jQuery获取的对象："+$inp);
+            alert("jQuery对象调用属性："+$inp.value);
+        });
+
+    </script>
+</head>
+<body >
+<!--jQuery的使用-->
+    <center>
+        账号：<input type="text" value="张三" id="inp_name">
+    </center>
+
+</body>
+</html>

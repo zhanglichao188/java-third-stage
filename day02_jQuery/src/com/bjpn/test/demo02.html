@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo02</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            /*var $all=$("*");
+            alert($all.length);*/
+            /*var $inp=$("#inp_name");
+            alert($inp.length);*/
+            /*var $inp = $(".inp_c1");
+            alert($inp.length);*/
+            /*var $allInput = $("input");
+            alert($allInput.length);*/
+            var $other = $("#inp_name,.inp_c1,#inp_pwd,center");
+            alert($other.length);
+        });
+    </script>
+</head>
+<body>
+    <center>
+        <h1>注册页面</h1>
+        <form>
+            <table>
+                <tr>
+                    <td>账号：</td>
+                    <td><input type="text" name="uname" value="" id="inp_name" class="inp_c1"></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input type="password" name="upwd" value="" id="inp_pwd" class="inp_c1"></td>
+                </tr>
+                <tr>
+                    <td>爱好：</td>
+                    <td><input type="checkbox" name="hobby" value="游泳" class="inp_c1">游泳
+                        <input type="checkbox" name="hobby" value="看书" class="inp_c2">看书
+                        <input type="checkbox" name="hobby" value="睡觉">睡觉
+                    </td>
+                </tr>
+                <input type="submit" value="提交">
+
+            </table>
+        </form>
+    </center>
+</body>
+</html>

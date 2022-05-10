@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo04</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            /*$("#inp_name").blur(function () {
+                var $inpName = $("#inp_name");
+                var nameValue = $inpName.val();
+                alert(nameValue);
+                $inpName.val("给你个新值:大朗")
+            });*/
+            $("#check_pwd").click(function () {
+                var $inpPwd = $("#inp_pwd");
+                var type = $inpPwd.attr("type");
+                /*alert("取出name属性" + $inpPwd.attr("name"));
+                alert("取出value属性" + $inpPwd.attr("value"));
+                alert("取出id属性" + $inpPwd.attr("id"));*/
+                alert("取出name属性" + $inpPwd.prop("name"));
+                alert("取出value属性" + $inpPwd.prop("value"));
+                alert("取出id属性" + $inpPwd.prop("id"));
+                if (type == "password") {
+                    $inpPwd.prop("type", "text");
+                } else {
+                    $inpPwd.prop("type", "password");
+                }
+            });
+
+            $("#inp_name").focus(function () {
+                /*$("#message_name").html("<font color='blue'>用户名是字母加数字的组合<font/>")*/
+                $("#message_name").text("<font color='blue'>用户名是字母加数字的组合<font/>");
+            });
+        });
+
+        function getAll() {
+            /*var $hobbys = $(".inp_c1");
+            for (var i = 0; i <$hobbys.length; i++) {
+                $hobbys[i].prop("checked",true);
+            }*/
+            var hobbys=document.getElementsByClassName("inp_c1");
+            for (var i = 0; i <hobbys.length; i++) {
+                hobbys[i].checked = "checked";
+            }
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h1>注册页面</h1>
+        <table>
+            <tr>
+                <td>账号：</td>
+                <td><input type="text" name="uname" value="" id="inp_name"  >
+                    <b id="message_name"></b>
+                </td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="upwd" value="" id="inp_pwd" >
+                    <b id="check_pwd">查看密码</b>
+                </td>
+            </tr>
+            <tr>
+                <td>爱好：</td>
+                <td><input type="checkbox" name="hobby" value="游泳" class="inp_c1" >游泳
+                    <input type="checkbox" name="hobby" value="看书" class="inp_c1" >看书
+                    <input type="checkbox" name="hobby" value="睡觉" class="inp_c1">睡觉
+                    <br/>
+                    <button onclick="getAll();">全选</button>
+                </td>
+            </tr>
+            <input type="submit" value="提交">
+        </table>
+    </center>
+</body>
+</html>

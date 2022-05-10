@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../../../jquery-1.11.1.js"></script>
+    <script>
+        function getAll(){
+           var $inpCheck =  $(".inp_check");
+           //对这个jQuery对象进行遍历操作
+            for (var i=0;i<$inpCheck.length;i++){
+                //操作属性  我需要明确  当前对象是js对象还是jQuery对象
+                //alert($inpCheck[i]);//遍历jQuery对象会使他变成dom对象
+                var checkInp = $inpCheck[i];//0 1 2
+                checkInp.checked = true;
+            }
+        }
+        //使用id
+        $(function(){
+            $("#get_other").click(function (){
+                var $inpCheck = $(".inp_check");
+                for(var i=0;i<$inpCheck.length;i++){
+                    var checkInp = $inpCheck[i];
+                    checkInp.checked = !checkInp.checked;
+                }
+            });
+        })
+        //提交事件
+        function tijiao(){
+           /* alert("我来决定你是否能提交");*/
+            var uname = $("#inp_name").val();
+            if(uname=="" || uname == null){
+                alert("账号不能为空")
+                return false;
+            }
+            var upwd = $("#inp_pwd").val();
+            if(upwd=="" || upwd == null){
+                alert("密码不能为空")
+                return false;
+            }
+            return true;
+        }
+        $(function(){
+            $("#sub_fn").submit(function (){
+                alert("jQuery版的submit事件")
+                return false;
+            });
+        })
+    </script>
+</head>
+<body>
+    <center>
+        <form action="https://www.baidu.com" onsubmit="return tijiao();">
+            <!--<form action="https://www.baidu.com" id="sub_fn">-->
+            账号:<input type="text" name="uname" value="" id="inp_name"><br/>
+            密码:<input type="password" name="upwd" value="" id="inp_pwd"><a>查看密码</a><br/>
+            爱好:<input type="checkbox" name="hobby" value="游泳" class="inp_check">游泳
+                <input type="checkbox" name="hobby" value="看书" class="inp_check">看书
+                <input type="checkbox" name="hobby" value="睡觉" class="inp_check">睡觉<br/>
+                <a href="javascript:getAll();">全选</a> <a id="get_other">反选</a>  <a>不选</a><br/>
+            <input type="submit" value="提交">
+            <label id="error_message"></label>
+        </form>
+    </center>
+</body>
+</html>
